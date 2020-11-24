@@ -43,7 +43,7 @@ Notable targets are described below
 Run 
 
 ```
-make up
+make build up
 ```
 
 The broker will start and listen on `0.0.0.0:8080`. You can curl

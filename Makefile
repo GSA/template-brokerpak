@@ -1,6 +1,6 @@
 
 .DEFAULT_GOAL := help
-
+CSB_RUN=docker run --rm --mount type=bind,src=$(PWD),dst=/brokerpak -w /brokerpak cfplatformeng/csb
 CSB_EXEC=docker-compose exec -T broker /bin/cloud-service-broker
 
 clean: .env.secrets ## Bring down the broker service if it's up, clean out the database, and remove created images
@@ -9,7 +9,7 @@ clean: .env.secrets ## Bring down the broker service if it's up, clean out the d
 # Origin of the subdirectory dependency solution: 
 # https://stackoverflow.com/questions/14289513/makefile-rule-that-depends-on-all-files-under-a-directory-including-within-subd#comment19860124_14289872
 build: manifest.yml $(shell find services) ## Build the brokerpak(s)
-	@docker run --rm --mount type=bind,src=$(PWD),dst=/source --workdir="/source" cfplatformeng/csb pak build .
+	@$(CSB_RUN) pak build .
 
 up: .env.secrets ## Run the broker service with the brokerpak configured. The broker listens on `0.0.0.0:8080`. curl http://127.0.0.1:8080 or visit it in your browser.
 	docker-compose up -d
