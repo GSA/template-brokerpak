@@ -17,15 +17,23 @@ docs.
 Huge props go to @josephlewis42 of Google for publishing and publicizing the
 brokerpak concept, and to the Pivotal team running with the concept!
 
-## Prerequisites
+## Features/components
+
+TKTK
+
+
+## Development Prerequisites
 
 1. [Docker Desktop (for Mac or
 Windows)](https://www.docker.com/products/docker-desktop) or [Docker Engine (for
 Linux)](https://www.docker.com/products/container-runtime) is used for
 building, serving, and testing the brokerpak.
-1. `make` is used for executing docker commands in a meaningful build cycle. 
+1. `make` is used for executing docker commands in a meaningful build cycle.
+1. *If* the brokerpak user needs to have permissions in the cloud provider (such as AWS IAM roles),
+  you have to set that user up yourself or edit `permission-policies.tf` to have the appropriate permissions.
 
-Run the `make` command by itself for information on the various targets that are available. 
+## Developing the brokerpak
+Run the `make` command by itself for information on the various targets that are available.
 
 ```
 $ make
@@ -39,11 +47,11 @@ help       This help
 ```
 Notable targets are described below
 
-## Building and starting the brokerpak 
-Run 
+## Building and starting the brokerpak
+Run
 
 ```
-make up
+make build up
 ```
 
 The broker will start and listen on `0.0.0.0:8080`. You can curl
@@ -51,7 +59,7 @@ http://127.0.0.1 or visit it in your browser.
 
 ## Testing the brokerpak (while it's running)
 
-Run 
+Run
 ```
 make test
 ```
@@ -62,7 +70,7 @@ will be invoked for end-to-end testing of the brokerpak's service offerings.
 
 ## Tearing down the brokerpak
 
-Run 
+Run
 
 ```
 make down
@@ -72,7 +80,7 @@ The broker will be stopped.
 
 ## Cleaning out the current state
 
-Run 
+Run
 ```
 make clean
 ```
@@ -89,4 +97,3 @@ This project is in the worldwide [public domain](LICENSE.md). As stated in [CONT
 > This project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication](https://creativecommons.org/publicdomain/zero/1.0/).
 >
 > All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
-
