@@ -1,0 +1,3 @@
+domain                 = "gsa.gov"
+address                = "user@gsa.gov"
+password_special_chars = "!@#$%^"

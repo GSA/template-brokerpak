@@ -4,6 +4,7 @@
 ### Terraform ###
 # Local .terraform directories
 **/.terraform/*
+.terraform.lock.hcl
 
 # .tfstate files
 *.tfstate
@@ -36,9 +37,8 @@ override.tf.json
 .DS_Store
 /todo.txt
 terraform.tfvars
-app/config.yml
-app.zip
-app/*
 backend.tfvars
 .env.secrets
 *.brokerpak
+*.ash_history
+*.terraform.d/
