@@ -36,7 +36,8 @@ provision:
     field_name: email
     type: string
     details: The combined email address
-  template_ref: "services/terraform/example-email-provision.tf"
+  template_refs:
+    main: "services/terraform/provision/main.tf"
 bind:
   plan_inputs:
   - required: true
@@ -58,7 +59,8 @@ bind:
     field_name: uri
     type: string
     details: The uri to use to connect to this service
-  template_ref: "services/terraform/example-email-bind.tf"
+  template_refs:
+    main: "services/terraform/bind/main.tf"
 examples:
 - name: Example
   description: Examples are used for documenting your service AND as integration tests.
